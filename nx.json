@@ -25,6 +25,19 @@
     "providers-e2e": {
       "tags": [],
       "implicitDependencies": ["providers"]
+    },
+    "shell": {
+      "tags": []
+    },
+    "shell-e2e": {
+      "tags": [],
+      "implicitDependencies": ["shell"]
+    },
+    "providers-domain": {
+      "tags": ["domain:providers", "type:domain-logic"]
+    },
+    "providers-feature-search": {
+      "tags": ["domain:providers", "type:feature"]
     }
   }
 }
