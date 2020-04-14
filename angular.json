@@ -204,5 +204,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "providers"
+  "defaultProject": "shell-app"
 }
