@@ -25,7 +25,9 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc",
+    "postinstall:bak": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "build:providers:externals": "ng build --extra-webpack-config apps/providers/webpack.externals.js --prod --project providers --single-bundle"
   },
   "private": true,
   "dependencies": {
@@ -34,12 +36,15 @@
     "@angular/common": "^9.1.0",
     "@angular/compiler": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/elements": "^9.1.1",
     "@angular/forms": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "@angular/platform-browser-dynamic": "^9.1.0",
     "@angular/router": "^9.1.0",
     "@nrwl/angular": "9.2.2",
+    "@webcomponents/webcomponentsjs": "^2.4.3",
     "core-js": "^2.5.4",
+    "ngx-build-plus": "^9.0.6",
     "rxjs": "~6.5.4",
     "zone.js": "^0.10.2"
   },

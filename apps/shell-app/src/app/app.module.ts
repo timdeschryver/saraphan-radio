@@ -1,20 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { ProvidersFeatureSearchModule } from '@saraphan/providers/feature-search';
 import { HttpClientModule } from '@angular/common/http';
+import {ProvidersFeatureSearchModule} from '@saraphan/providers/feature-search'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
-    ProvidersFeatureSearchModule,
-    HttpClientModule
+     HttpClientModule,
+     ProvidersFeatureSearchModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -19,19 +19,13 @@
     }
   },
   "projects": {
-    "providers": {
+
+    "shell-app": {
       "tags": []
     },
-    "providers-e2e": {
+    "shell-app-e2e": {
       "tags": [],
-      "implicitDependencies": ["providers"]
-    },
-    "shell": {
-      "tags": []
-    },
-    "shell-e2e": {
-      "tags": [],
-      "implicitDependencies": ["shell"]
+      "implicitDependencies": ["shell-app"]
     },
     "providers-domain": {
       "tags": ["domain:providers", "type:domain-logic"]
@@ -39,5 +33,6 @@
     "providers-feature-search": {
       "tags": ["domain:providers", "type:feature"]
     }
+
   }
 }
