@@ -1,12 +1,28 @@
-
 <h1>providers-search</h1>
-<div  *ngFor="let provider of providerList$ | async">
+<div *ngFor="let provider of providerList$ | async">
   <mat-card>
-    <p>{{provider.id}}</p>
-    <p>{{provider.name}}</p>
-    <p>{{provider.description}}</p>
+    <mat-card-title>{{provider.name}}</mat-card-title>
+    <mat-card-content>{{provider.description}}</mat-card-content>
+    <mat-card-actions> <a mat-raised-button href="https://www.google.com/" target="_blank">Edit</a>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Calendar</a>
+    </mat-card-actions>
+    <mat-card-footer> <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+        <mat-icon>menu</mat-icon>
+
+      </button>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button  aria-label="Example icon button with a open in new tab icon">
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </mat-card-footer>
   </mat-card>
 
 </div>
-
-
