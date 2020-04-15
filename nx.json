@@ -19,7 +19,6 @@
     }
   },
   "projects": {
-
     "shell-app": {
       "tags": []
     },
@@ -31,8 +30,10 @@
       "tags": ["domain:providers", "type:domain-logic"]
     },
     "providers-feature-search": {
-      "tags": ["domain:providers", "type:feature"]
+      "tags": ["domain:providers", "type:feature", "ui"]
+    },
+    "ui": {
+      "tags": []
     }
-
   }
 }

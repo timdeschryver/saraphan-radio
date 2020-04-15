@@ -1,4 +1,13 @@
-<p> this is the shell</p>
+<mat-sidenav-container>
+  <navigation-header (sidenavToggle)="sidenav.toggle()"></navigation-header>
+
+  <mat-sidenav #sidenav mode="side" opened>
+    <navigation-side (sidenavClose)="sidenav.close()"></navigation-side>
+  </mat-sidenav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 
 
-<providers-search></providers-search>
+</mat-sidenav-container>

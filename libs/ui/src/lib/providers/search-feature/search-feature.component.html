@@ -1,6 +1,5 @@
-
 <h1>providers-search</h1>
-<div  *ngFor="let provider of providerList$ | async">
+<div  *ngFor="let provider of providerLists">
   <mat-card>
     <p>{{provider.id}}</p>
     <p>{{provider.name}}</p>
@@ -8,5 +7,3 @@
   </mat-card>
 
 </div>
-
-
