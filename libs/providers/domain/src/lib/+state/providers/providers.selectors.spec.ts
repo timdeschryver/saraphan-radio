@@ -1,4 +1,4 @@
-import { ProvidersEntity } from './providers.models';
+import { ProvidersEntity } from '../../entities/providers.models';
 import { State, providersAdapter, initialState } from './providers.reducer';
 import * as ProvidersSelectors from './providers.selectors';
 

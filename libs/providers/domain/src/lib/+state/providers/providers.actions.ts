@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ProvidersEntity } from './providers.models';
+import { ProvidersEntity } from '../../entities/providers.models';
 
 export const loadProviders = createAction('[Providers] Load Providers');
 
