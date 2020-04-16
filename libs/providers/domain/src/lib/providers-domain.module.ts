@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProvidersFacade } from './+state/providers/providers.facade';
-import { ProvidersDomainStateModule } from './providers-domain-state.module';
+import { ProvidersFacade } from './+state/providers/providers.facade'; 
 
 @NgModule({
   imports: [
     CommonModule,
-    ProvidersDomainStateModule
   ],
   providers: [ProvidersFacade]
 })

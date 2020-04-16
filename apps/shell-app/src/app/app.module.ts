@@ -2,19 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ProvidersFeatureSearchModule } from '@saraphan/providers/feature-search';
+import { ProvidersFeatureSearchModule, ProvidersSearchComponent } from '@saraphan/providers/feature-search';
+import { UiModule ,MaterialModule} from '@saraphan/ui';
 import { RootStoreModule } from './root-store.module';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: ProvidersSearchComponent
+  }
+];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled' }),
     HttpClientModule,
     ProvidersFeatureSearchModule,
-    RootStoreModule
+    RootStoreModule,
+    MaterialModule,
+    UiModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
