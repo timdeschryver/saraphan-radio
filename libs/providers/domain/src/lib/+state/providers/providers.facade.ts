@@ -4,6 +4,7 @@ import { select, Store, Action } from '@ngrx/store';
 
 import * as fromProviders from './providers.reducer';
 import * as ProvidersSelectors from './providers.selectors';
+import { loadProviders } from './providers.actions';
 
 @Injectable()
 export class ProvidersFacade {
@@ -15,5 +16,8 @@ export class ProvidersFacade {
 
   dispatch(action: Action) {
     this.store.dispatch(action);
+  }
+  loadProviders(){
+    this.store.dispatch(loadProviders());
   }
 }

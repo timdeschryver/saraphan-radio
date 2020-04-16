@@ -7,7 +7,7 @@ import { StoreModule, Store } from '@ngrx/store';
 
 import { NxModule } from '@nrwl/angular';
 
-import { ProvidersEntity } from './providers.models';
+import { ProvidersEntity } from '../../entities/providers.models';
 import { ProvidersEffects } from './providers.effects';
 import { ProvidersFacade } from './providers.facade';
 

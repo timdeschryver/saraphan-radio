@@ -1,28 +1,21 @@
-import { Component, OnInit} from '@angular/core';
-import { SearchFacade } from '@saraphan/providers/domain';
+import { Component, ChangeDetectionStrategy} from '@angular/core';
+import { ProvidersFacade } from '@saraphan/providers/domain';
+
 
 @Component({
   selector: 'providers-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProvidersSearchComponent implements OnInit {
+export class ProvidersSearchComponent   {
 
 
-    providerList$ = this.searchFacade.providerList$;
+    providerList$ = this.app.allProviders$;
+    constructor(private app: ProvidersFacade) {
+      console.log("dispatch")
+      this.app.loadProviders();
 
-
-    constructor(private searchFacade: SearchFacade) {
     }
-
-
-    ngOnInit() {
-        this.load();
-    }
-
-    load(): void {
-        this.searchFacade.load();
-    }
-
 }
 

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import {Provider} from '../entities/provider';
+import { ProvidersEntity } from '../entities/providers.models';
 
 @Injectable({ providedIn: 'root' })
 export class ProviderDataService {
@@ -9,7 +9,7 @@ export class ProviderDataService {
     constructor(private http: HttpClient) {
     }
 
-    load(): Observable<Provider[]> {
+    load(): Observable<ProvidersEntity[]> {
 
         // Uncomment if needed
         /*
@@ -18,7 +18,7 @@ export class ProviderDataService {
         const headers = new HttpHeaders().set('Accept', 'application/json');
         return this.http.get<Provider[]>(url, {params, headers});
         */
-        
+
         return of([
             {id: 1, name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet'},
             {id: 2, name: 'At vero eos', description: 'At vero eos et accusam et justo duo dolores'},

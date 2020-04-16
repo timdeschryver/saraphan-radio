@@ -2,7 +2,7 @@ import { createReducer, on, Action } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import * as ProvidersActions from './providers.actions';
-import { ProvidersEntity } from './providers.models';
+import { ProvidersEntity } from '../../entities/providers.models';
 
 export const PROVIDERS_FEATURE_KEY = 'providers';
 
@@ -22,7 +22,7 @@ export const providersAdapter: EntityAdapter<ProvidersEntity> = createEntityAdap
 
 export const initialState: State = providersAdapter.getInitialState({
   // set initial required properties
-  loaded: false
+  loaded: false,
 });
 
 const providersReducer = createReducer(
