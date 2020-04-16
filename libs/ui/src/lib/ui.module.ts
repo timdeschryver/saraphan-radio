@@ -4,12 +4,16 @@ import { NavigationComponent } from './navigation-header/navigation-header.compo
 import { ShellComponent } from './shell/shell.component';
 import { MaterialModule } from './material.module';
 import { NavigationSideComponent } from './navigation-side/navigation-side.component';
-const components =  [ NavigationComponent, ShellComponent, NavigationSideComponent];
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
+
+const components =  [ NavigationComponent, ShellComponent, NavigationSideComponent,DateTimePickerComponent];
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    NgxMaterialTimepickerModule
   ],
   declarations: components,
   exports:components

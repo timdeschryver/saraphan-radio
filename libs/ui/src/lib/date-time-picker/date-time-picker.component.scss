@@ -1,0 +1,15 @@
+mat-card {
+  margin-top:10px;
+  cursor: pointer;
+}
+mat-card:hover {
+  box-shadow: 0 2px 2px 2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.12);
+  transform: translate3d(0,0,0);
+}
+.custom-date-class {
+  background: orange;
+  border-radius: 100%;
+}
+mat-divider{
+  margin-bottom: 40px;
+}
