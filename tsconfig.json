@@ -20,7 +20,7 @@
       "@saraphan/providers/feature-search": [
         "libs/providers/feature-search/src/index.ts"
       ],
-      "@saraphan/ui": ["libs/ui/src/index.ts"]
+      "@saraphan/ui": ["libs/ui/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

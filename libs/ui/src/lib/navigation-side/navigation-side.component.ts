@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'navigation-side',
@@ -7,6 +7,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class NavigationSideComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
+  @Input() public isLoggedIn:boolean;
+
   constructor() { }
 
   ngOnInit(): void {
