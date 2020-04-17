@@ -20,4 +20,9 @@ export class AppComponent {
   logout() {
     this.auth.logout();
   }
+  register(){
+    if(this.loggedIn){
+      
+    }
+  }
 }

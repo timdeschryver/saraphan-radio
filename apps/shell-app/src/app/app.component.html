@@ -6,7 +6,7 @@
   </mat-sidenav>
 
   <main>
-   <saraphan-shell  [isLoggedIn]="(user | async)?.loggedIn"></saraphan-shell>
+   <saraphan-shell (registerEvent)="register()" [isLoggedIn]="(user | async)?.loggedIn"></saraphan-shell>
     <router-outlet></router-outlet>
   </main>
 

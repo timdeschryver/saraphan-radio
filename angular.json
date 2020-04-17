@@ -222,6 +222,73 @@
           "style": "scss"
         }
       }
+    },
+    "account-domain": {
+      "projectType": "library",
+      "root": "libs/account/domain",
+      "sourceRoot": "libs/account/domain/src",
+      "prefix": "account",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/account/domain/tsconfig.lib.json",
+              "libs/account/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/account/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/account/domain/jest.config.js",
+            "tsConfig": "libs/account/domain/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/account/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "account-feature-registration": {
+      "projectType": "library",
+      "root": "libs/account/feature-registration",
+      "sourceRoot": "libs/account/feature-registration/src",
+      "prefix": "account",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/account/feature-registration/tsconfig.lib.json",
+              "libs/account/feature-registration/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/account/feature-registration/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/account/feature-registration/jest.config.js",
+            "tsConfig": "libs/account/feature-registration/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/account/feature-registration/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

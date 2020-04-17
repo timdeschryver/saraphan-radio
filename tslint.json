@@ -89,6 +89,13 @@
               "domain:providers",
               "domain:shared"
             ]
+          },
+          {
+            "sourceTag": "domain:account",
+            "onlyDependOnLibsWithTags": [
+              "domain:account",
+              "domain:shared"
+            ]
           }
         ]
       }
