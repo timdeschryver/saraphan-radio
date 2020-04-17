@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'navigation-header',
@@ -7,6 +7,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
+  @Output() public loginEvent = new EventEmitter();
+  @Output() public logoutEvent = new EventEmitter();
+  @Input() public isLoggedIn:boolean;
+  @Input() public user:any;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,5 +19,11 @@ export class NavigationComponent implements OnInit {
     this.sidenavToggle.emit();
   }
 
+  login(){
+    this.loginEvent.emit();
+  }
+  logout(){
+    this.logoutEvent.emit();
 
+  }
 }

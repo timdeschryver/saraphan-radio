@@ -1,8 +1,10 @@
-<mat-toolbar color="primary">
-  <div >
-      <button mat-icon-button (click)="onToggleSidenav()">
-          <mat-icon>menu</mat-icon>
-      </button>
+<mat-toolbar color="primary" >
+
+
+  <div class="menu ">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon title="menu">menu</mat-icon>
+    </button>
   </div>
   <!-- <div>
       <a routerLink="/home">Owner-Account</a>
@@ -17,4 +19,22 @@
           </li>
       </ul>
   </div> -->
+
+
+  <div *ngIf="!isLoggedIn"  >
+    <button mat-icon-button (click)=" login()">
+      <mat-icon title="log me in" >account_circle</mat-icon>
+    </button>
+  </div>
+  <div class="spacer"></div>
+
+  <div *ngIf="isLoggedIn"  >
+    Welcome, {{user.nickname}}!
+    <button mat-icon-button>
+      <mat-icon title="open my account" class="login">perm_identity</mat-icon>
+    </button>
+    <button mat-icon-button (click)=" logout()">
+      <mat-icon title="logout" class="login">exit_to_app</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'saraphan-shell',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
+  @Input() public isLoggedIn:boolean;
 
   constructor() { }
 
