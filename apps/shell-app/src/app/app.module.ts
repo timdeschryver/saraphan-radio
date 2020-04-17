@@ -10,7 +10,7 @@ import { RootStoreModule } from './root-store.module';
 import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
 import { CallbackComponent } from './auth/components/callback/callback.component';
-import { AccountFeatureRegistrationModule } from '@saraphan/account/feature-registration';
+import { AuthGuard } from './auth/guard/auth/auth.guard';
 
 const appRoutes: Routes = [
 
@@ -24,7 +24,8 @@ const appRoutes: Routes = [
   },
   {
     path:'account',
-    loadChildren: () => import('@saraphan/account/feature-registration/account-feature-registration.module').then(m => m.AccountFeatureRegistrationModule)
+    loadChildren: () => import('@saraphan/account/feature-registration').then(m => m.AccountFeatureRegistrationModule)
+    ,canActivate: [AuthGuard]
   }
 ];
 
@@ -39,7 +40,6 @@ const appRoutes: Routes = [
     MaterialModule,
     UiModule,
     AuthModule.forRoot(environment),
-    AccountFeatureRegistrationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
