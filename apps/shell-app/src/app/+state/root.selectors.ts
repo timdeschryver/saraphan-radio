@@ -2,8 +2,7 @@ import {
   createFeatureSelector,
   createSelector,
   ActionReducerMap
-} from '@ngrx/store';
-import { AppState } from './root.reducer';
+} from '@ngrx/store'; 
 import* as fromRoot from './root.reducer';
 
 export interface RootState {
