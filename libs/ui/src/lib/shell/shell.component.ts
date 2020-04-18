@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
-  @Input() public isLoggedIn: boolean;
+  @Input() public user: any;
   @Input() public showShell: boolean;
   @Output() public registerEvent = new EventEmitter();
 

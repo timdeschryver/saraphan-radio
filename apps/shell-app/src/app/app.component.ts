@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth/services/auth.service';
 import { Router } from '@angular/router';
+import { AppState } from './+state/root.reducer';
+import { Store, select } from '@ngrx/store';
+import { LoginAction, LogoutAction } from './+state/root.actions';
+import { selectUser } from './+state/root.selectors';
 
 @Component({
   selector: 'saraphan-root',
@@ -10,20 +13,18 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'shell';
 
-  constructor(private auth: AuthService,private router: Router) {
-    this.auth.localAuthSetup();
-  }
-  user = this.auth.userProfile$
-  loggedIn = this.auth.loggedIn
+  constructor(private store: Store<AppState>, private router: Router) {}
+  user$ = this.store.pipe(select(selectUser));
+
   showShell = true;
   login() {
-    this.auth.login();
+    this.store.dispatch(LoginAction());
   }
   logout() {
-    this.auth.logout();
+    this.store.dispatch(LogoutAction());
   }
-  register(){
-    this.router.navigate([ '/account' ])
+  register() {
+    this.router.navigate(['/account']);
     this.showShell = false;
   }
 }

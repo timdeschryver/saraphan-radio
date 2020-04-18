@@ -1,12 +1,12 @@
 <mat-sidenav-container>
-  <navigation-header (logoutEvent)="logout()"  [user]="user | async" [isLoggedIn]="(user | async)?.loggedIn" (loginEvent)="login()" (sidenavToggle)="sidenav.toggle()"></navigation-header>
+  <navigation-header (logoutEvent)="logout()"  [user]="user$ | async" (loginEvent)="login()" (sidenavToggle)="sidenav.toggle()"></navigation-header>
 
   <mat-sidenav #sidenav mode="side" >
-    <navigation-side [isLoggedIn]="(user | async)?.loggedIn" (sidenavClose)="sidenav.close()"></navigation-side>
+    <navigation-side [user]="user$ | async" (sidenavClose)="sidenav.close()"></navigation-side>
   </mat-sidenav>
 
   <main>
-   <saraphan-shell [showShell]="showShell" (registerEvent)="register()" [isLoggedIn]="(user | async)?.loggedIn"></saraphan-shell>
+   <saraphan-shell [showShell]="showShell" (registerEvent)="register()" [user]="user$ | async"></saraphan-shell>
     <router-outlet></router-outlet>
   </main>
 
