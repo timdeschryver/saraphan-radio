@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'saraphan-shell',
@@ -6,11 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
-  @Input() public isLoggedIn:boolean;
+  @Input() public user: any;
+  @Input() public showShell: boolean;
+  @Output() public registerEvent = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  register() {
+    this.registerEvent.emit();
   }
-
 }

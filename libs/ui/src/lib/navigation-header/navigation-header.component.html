@@ -21,14 +21,14 @@
   </div> -->
 
 
-  <div *ngIf="!isLoggedIn"  >
+  <div *ngIf="!user?.loggedIn"  >
     <button mat-icon-button (click)=" login()">
       <mat-icon title="log me in" >account_circle</mat-icon>
     </button>
   </div>
   <div class="spacer"></div>
 
-  <div *ngIf="isLoggedIn"  >
+  <div *ngIf="user?.loggedIn"  >
     Welcome, {{user.nickname}}!
     <button mat-icon-button>
       <mat-icon title="open my account" class="login">perm_identity</mat-icon>

@@ -34,7 +34,12 @@
     },
     "ui": {
       "tags": []
+    },
+    "account-domain": {
+      "tags": ["domain:account", "type:domain-logic"]
+    },
+    "account-feature-registration": {
+      "tags": ["domain:account", "type:feature", "ui"]
     }
-
   }
 }

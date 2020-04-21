@@ -4,11 +4,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-
+import { RootEffects } from './+state/root.effects';
+import * as fromRoot from './+state/root.reducer';
 @NgModule({
   imports: [
-    StoreModule.forRoot(
-      {},
+    StoreModule.forRoot( {app: fromRoot.reducer},
       {
         metaReducers: !environment.production ? [] : [],
         runtimeChecks: {
@@ -17,10 +17,11 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
         }
       }
     ),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([RootEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot()
   ],
+  providers: [RootEffects]
 
 })
 export class RootStoreModule {}

@@ -9,7 +9,6 @@ export class NavigationComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   @Output() public loginEvent = new EventEmitter();
   @Output() public logoutEvent = new EventEmitter();
-  @Input() public isLoggedIn:boolean;
   @Input() public user:any;
   constructor() { }
 

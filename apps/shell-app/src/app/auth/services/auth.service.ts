@@ -6,6 +6,9 @@ import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {  Store } from '@ngrx/store';
 import { IEnvironment } from '../auth.module';
+import { AppState } from '../../+state/root.reducer';
+import * as RootActions from '../../+state/root.actions';
+import { UserEntity } from '../../+state/user-entity.type';
 
 //import { State } from '../../root-store/reducers/reducer';
 //import * as StoreActions from '../../root-store/actions/actions'
@@ -16,7 +19,7 @@ import { IEnvironment } from '../auth.module';
 export class AuthService {
 
   //constructor(private router: Router,private store: Store<State>,  @Inject('env') private environment: IEnvironment) { }
-  constructor(private router: Router ,  @Inject('env') private environment: IEnvironment) { }
+  constructor(private router: Router ,  @Inject('env') private environment: IEnvironment,private store: Store<AppState>) { }
 
 
   // Create an observable of Auth0 instance of client
@@ -44,7 +47,7 @@ export class AuthService {
   private userProfileSubject$ = new BehaviorSubject<any>(null);
   userProfile$ = this.userProfileSubject$.asObservable();
   // Create a local property for login status
-  loggedIn: boolean = null;
+
 
 
   // getUser$() is a method because options can be passed if desired
@@ -73,14 +76,15 @@ export class AuthService {
       // If not authenticated, response will be 'false'
       // Set subjects appropriately
       if (response) {
-        console.log("")
-        const user = response;
-        user["loggedIn"] = true;
+        console.log("response:",response)
+        const user = response as UserEntity;
+        user.loggedIn = true;
         this.userProfileSubject$.next(user);
-       // this.store.dispatch(new StoreActions.UserChanged(user));
+        this.store.dispatch(RootActions.loadUserSuccess({ userData: user }));
+      }else{
+        this.store.dispatch(RootActions.loadUserFailure({ error: "unable to login" }));
       }
-      this.loggedIn = !!response;
-     // this.store.dispatch(new StoreActions.UserChanged({loggedIn: this.loggedIn}));
+
       // Clean up subscription
       checkAuthSub.unsubscribe();
     });
@@ -125,11 +129,10 @@ export class AuthService {
     authComplete$.subscribe(([user, loggedIn]) => {
       // Update subjects and loggedIn property
       user.loggedIn = loggedIn;
-      console.log("")
       this.userProfileSubject$.next(user);
       this.loggedIn = loggedIn;
-     // this.store.dispatch(new StoreActions.UserChanged(user));
-     // this.store.dispatch(new StoreActions.LoadEventsForUser());
+      this.store.dispatch(RootActions.loadUserSuccess({ userData: user }));
+
       // Redirect to target route after callback processing
       this.router.navigate([targetRoute]);
     });
