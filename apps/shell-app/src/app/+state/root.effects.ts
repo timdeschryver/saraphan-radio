@@ -9,7 +9,7 @@ import { AuthService } from '../auth/services/auth.service';
 @Injectable()
 export class RootEffects {
 
-  loadProviders$ = createEffect(() =>
+  loginAction$ = createEffect(() =>
   this.actions$.pipe(
     ofType(RootActions.LoginAction),
     fetch({
@@ -20,8 +20,21 @@ export class RootEffects {
         console.error('Error', error);
         return RootActions.loadUserFailure({ error });
       }
-    })
-  )
+    })));
+
+logoutAction$ = createEffect(() =>
+this.actions$.pipe(
+  ofType(RootActions.LogoutAction),
+  fetch({
+    run: () => {
+       this.auth.logout()
+    },
+    onError: (action, error) => {
+      console.error('Error', error);
+      return RootActions.genericFailure({ error });
+    }
+  })
+)
 );
 
   constructor(private actions$: Actions,private auth: AuthService) {

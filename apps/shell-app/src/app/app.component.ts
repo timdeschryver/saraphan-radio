@@ -18,7 +18,7 @@ export class AppComponent {
 
   showShell = true;
   login() {
-    this.store.dispatch(LoginAction());
+    this.store.dispatch(LoginAction({url:""}));
   }
   logout() {
     this.store.dispatch(LogoutAction());

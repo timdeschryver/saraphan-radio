@@ -2,7 +2,7 @@ import {
   createFeatureSelector,
   createSelector,
   ActionReducerMap
-} from '@ngrx/store'; 
+} from '@ngrx/store';
 import* as fromRoot from './root.reducer';
 
 export interface RootState {
@@ -10,4 +10,7 @@ export interface RootState {
 }
 export const selectUser = (state: RootState) => {
   return state.app.user;
+};
+export const isAuthenticated = (state: RootState) => {
+  return state.app.user?.loggedIn;
 };

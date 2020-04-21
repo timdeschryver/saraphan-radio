@@ -47,7 +47,7 @@ export class AuthService {
   private userProfileSubject$ = new BehaviorSubject<any>(null);
   userProfile$ = this.userProfileSubject$.asObservable();
   // Create a local property for login status
-  loggedIn: boolean = null;
+
 
 
   // getUser$() is a method because options can be passed if desired
@@ -78,15 +78,13 @@ export class AuthService {
       if (response) {
         console.log("response:",response)
         const user = response as UserEntity;
-        user["loggedIn"] = true;
+        user.loggedIn = true;
         this.userProfileSubject$.next(user);
         this.store.dispatch(RootActions.loadUserSuccess({ userData: user }));
       }else{
         this.store.dispatch(RootActions.loadUserFailure({ error: "unable to login" }));
-
       }
-      this.loggedIn = !!response;
-     // this.store.dispatch(new StoreActions.UserChanged({loggedIn: this.loggedIn}));
+
       // Clean up subscription
       checkAuthSub.unsubscribe();
     });
@@ -131,7 +129,6 @@ export class AuthService {
     authComplete$.subscribe(([user, loggedIn]) => {
       // Update subjects and loggedIn property
       user.loggedIn = loggedIn;
-      console.log("")
       this.userProfileSubject$.next(user);
       this.loggedIn = loggedIn;
       this.store.dispatch(RootActions.loadUserSuccess({ userData: user }));

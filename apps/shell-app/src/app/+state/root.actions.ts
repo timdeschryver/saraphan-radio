@@ -1,7 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 import { UserEntity } from "./user-entity.type";
 
-export const LoginAction = createAction('[Root] Login');
+export const LoginAction = createAction(
+  '[Root] Login',
+  props<{ url: string }>()
+);
 export const LogoutAction = createAction('[Root] Logout');
 
 export const loadUserSuccess = createAction(
@@ -11,5 +14,10 @@ export const loadUserSuccess = createAction(
 
 export const loadUserFailure = createAction(
   '[Root] User login Failure',
+  props<{ error: any }>()
+);
+
+export const genericFailure = createAction(
+  '[Root] Generic Failure',
   props<{ error: any }>()
 );
