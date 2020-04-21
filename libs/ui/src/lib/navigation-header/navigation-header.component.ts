@@ -9,6 +9,7 @@ export class NavigationComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   @Output() public loginEvent = new EventEmitter();
   @Output() public logoutEvent = new EventEmitter();
+  @Output() public accountEvent = new EventEmitter();
   @Input() public user:any;
   constructor() { }
 
@@ -23,6 +24,10 @@ export class NavigationComponent implements OnInit {
   }
   logout(){
     this.logoutEvent.emit();
+
+  }
+  account(){
+    this.accountEvent.emit();
 
   }
 }
