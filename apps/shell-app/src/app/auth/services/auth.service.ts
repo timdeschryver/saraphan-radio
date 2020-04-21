@@ -129,8 +129,7 @@ export class AuthService {
     authComplete$.subscribe(([user, loggedIn]) => {
       // Update subjects and loggedIn property
       user.loggedIn = loggedIn;
-      this.userProfileSubject$.next(user);
-      this.loggedIn = loggedIn;
+      this.userProfileSubject$.next(user); 
       this.store.dispatch(RootActions.loadUserSuccess({ userData: user }));
 
       // Redirect to target route after callback processing
