@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AppState } from './+state/root.reducer';
 import { Store, select } from '@ngrx/store';
 import { LoginAction, LogoutAction } from './+state/root.actions';
-import { selectUser } from './+state/root.selectors';
+import { selectUser, RootState } from './+state/root.selectors';
 
 @Component({
   selector: 'saraphan-root',
@@ -13,7 +13,7 @@ import { selectUser } from './+state/root.selectors';
 export class AppComponent {
   title = 'shell';
 
-  constructor(private store: Store<AppState>, private router: Router) {}
+  constructor(private store: Store<RootState>, private router: Router) {}
   user$ = this.store.pipe(select(selectUser));
 
   showShell = true;
