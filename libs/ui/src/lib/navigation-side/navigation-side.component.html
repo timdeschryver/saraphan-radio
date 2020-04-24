@@ -1,9 +1,12 @@
 <mat-nav-list>
+  <div class="icon">
+    <img src="/assets/favicon-32x32.png" /> <span>Saraphan Radio</span>
+  </div>
   <a mat-list-item routerLink="/" (click)="onSidenavClose()">
-      <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
   </a>
   <a *ngIf="user?.loggedIn" mat-list-item routerLink="/account" (click)="onSidenavClose()">
-      <mat-icon>perm_identity</mat-icon> <span class="nav-caption">My Account</span>
+    <mat-icon>perm_identity</mat-icon> <span class="nav-caption">My Account</span>
   </a>
 
 </mat-nav-list>

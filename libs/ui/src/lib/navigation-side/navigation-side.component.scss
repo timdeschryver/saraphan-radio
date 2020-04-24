@@ -11,3 +11,13 @@ a:hover, a:active{
   display: inline-block;
   padding-left: 6px;
 }
+.icon{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 57px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  img{
+    padding:12px;
+  }
+}
