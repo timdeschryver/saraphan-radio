@@ -4,6 +4,7 @@ import { AppState } from './+state/root.reducer';
 import { Store, select } from '@ngrx/store';
 import { LoginAction, LogoutAction } from './+state/root.actions';
 import { selectUser, RootState } from './+state/root.selectors';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'saraphan-root',
@@ -12,8 +13,9 @@ import { selectUser, RootState } from './+state/root.selectors';
 })
 export class AppComponent {
   title = 'shell';
+  responseJson: string;
 
-  constructor(private store: Store<RootState>, private router: Router) {}
+  constructor(private store: Store<RootState>, private router: Router,private api: ApiService) {}
   user$ = this.store.pipe(select(selectUser));
 
   showShell = true;
@@ -26,5 +28,10 @@ export class AppComponent {
   register() {
     this.router.navigate(['/account']);
     this.showShell = false;
+  }
+  pingApi() {
+    this.api.ping$().subscribe(
+      res => this.responseJson = res
+    );
   }
 }

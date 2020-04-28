@@ -4,4 +4,5 @@ export const environment = {
   authDomain:'csa-app.auth0.com',
   path: 'https://katesky.github.io/saraphan-radio',
   callback: 'https://katesky.github.io/saraphan-radio/callback',
+  api:'http://saraphanradio.com/api'
 };
