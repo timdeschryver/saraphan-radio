@@ -148,5 +148,9 @@ export class AuthService {
       });
     });
   }
-
+  getTokenSilently$(options?): Observable<string> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) => from(client.getTokenSilently(options)))
+    );
+  }
 }

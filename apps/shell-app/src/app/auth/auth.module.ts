@@ -1,8 +1,9 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { CallbackComponent } from './components/callback/callback.component'; 
+import { CallbackComponent } from './components/callback/callback.component';
 
 export interface IEnvironment {
+  api: string;
   path: string;
   production: boolean
   authClient: string;
