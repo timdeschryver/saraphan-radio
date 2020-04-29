@@ -15,6 +15,9 @@ import { AuthModule } from './auth/auth.module';
 import { CallbackComponent } from './auth/components/callback/callback.component';
 import { AuthGuard } from './auth/guard/auth/auth.guard';
 import { InterceptorService } from './auth/services/interceptor.service';
+// import localeRu from '@angular/common/locales/ru';
+// import { registerLocaleData } from '@angular/common';
+// registerLocaleData(localeRu, 'ru');
 
 const appRoutes: Routes = [
   {
