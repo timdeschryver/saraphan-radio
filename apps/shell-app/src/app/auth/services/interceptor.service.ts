@@ -17,8 +17,7 @@ export class InterceptorService implements HttpInterceptor{
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const differentAudienceOptions = {
-      audience:  this.environment.api,
-     // scope: 'read:account',
+      scope: 'read:all',
       redirect_uri: this.environment.callback
     };
     return this.auth.getTokenSilently$(differentAudienceOptions).pipe(
