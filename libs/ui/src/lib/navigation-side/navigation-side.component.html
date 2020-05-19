@@ -2,10 +2,10 @@
   <div class="icon">
     <img src="/assets/favicon-32x32.png" /> <span>Saraphan Radio</span>
   </div>
-  <a mat-list-item routerLink="/" (click)="onSidenavClose()">
+  <a mat-list-item   (click)="onSidenavClose(); navigate('')">
     <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
   </a>
-  <a *ngIf="user?.loggedIn" mat-list-item routerLink="/account" (click)="onSidenavClose()">
+  <a *ngIf="user?.loggedIn" mat-list-item  (click)="onSidenavClose(); navigate('account')">
     <mat-icon>perm_identity</mat-icon> <span class="nav-caption">My Account</span>
   </a>
 

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppState } from './+state/root.reducer';
+import { AppState } from '../../+state/root.reducer';
 import { Store, select } from '@ngrx/store';
-import { LoginAction, LogoutAction } from './+state/root.actions';
-import { selectUser, RootState } from './+state/root.selectors';
-import { ApiService } from './api.service';
+import { LoginAction, LogoutAction } from '../../+state/root.actions';
+import { selectUser, RootState } from '../../+state/root.selectors';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'saraphan-root',
@@ -33,5 +33,9 @@ export class AppComponent {
     this.api.ping$().subscribe(
       res => this.responseJson = res
     );
+  }
+  changeRoute(link){
+    this.router.navigate(['/' + link]);
+    this.showShell = false;
   }
 }

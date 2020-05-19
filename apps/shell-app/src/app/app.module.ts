@@ -1,20 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/core/app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {
   ProvidersFeatureSearchModule,
-  ProvidersSearchComponent
 } from '@saraphan/providers/feature-search';
-import { UiModule, MaterialModule } from '@saraphan/ui';
+import { UiModule, MaterialModule , ShellComponent} from '@saraphan/ui';
 import { RootStoreModule } from './root-store.module';
 import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
 import { CallbackComponent } from './auth/components/callback/callback.component';
 import { AuthGuard } from './auth/guard/auth/auth.guard';
 import { InterceptorService } from './auth/services/interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 // import localeRu from '@angular/common/locales/ru';
 // import { registerLocaleData } from '@angular/common';
 // registerLocaleData(localeRu, 'ru');
@@ -22,7 +24,7 @@ import { InterceptorService } from './auth/services/interceptor.service';
 const appRoutes: Routes = [
   {
     path: '',
-    component: ProvidersSearchComponent
+    component: ShellComponent
   },
   {
     path: 'callback',
@@ -34,20 +36,25 @@ const appRoutes: Routes = [
       import('@saraphan/account/feature-registration').then(
         m => m.AccountFeatureRegistrationModule
       ),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+  //  BrowserModule,
+
+  CommonModule,
+  BrowserAnimationsModule,
+  MaterialModule,
+  UiModule,
+  FormsModule,
+  ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled' }),
     HttpClientModule,
     ProvidersFeatureSearchModule,
     RootStoreModule,
-    MaterialModule,
-    UiModule,
     AuthModule.forRoot(environment)
   ],
   providers: [

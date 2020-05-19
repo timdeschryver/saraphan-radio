@@ -7,6 +7,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 })
 export class NavigationSideComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
+  @Output() navigateClicked = new EventEmitter<string>();
   @Input() public user:any;
 
   constructor() { }
@@ -15,5 +16,8 @@ export class NavigationSideComponent implements OnInit {
   }
   public onSidenavClose = () => {
     this.sidenavClose.emit();
+  }
+  navigate(link: string){
+    this.navigateClicked.emit(link);
   }
 }
