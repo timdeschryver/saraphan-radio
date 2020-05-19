@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccountDomainModule } from '@saraphan/account/domain';
-import { RegistrationComponent } from './components/registration.component';
+import { RegistrationComponent } from './components/core/registration.component';
 import { AccountRoutingModule } from './account-routing.module';
 import {UiModule,  MaterialModule } from '@saraphan/ui';
 

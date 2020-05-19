@@ -116,18 +116,13 @@ ul {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.pitching{
-  
+mat-card{
   cursor: pointer;
-  margin-right: 20px;
-  padding-right: 20px;
 }
+
 
 .large{
   width: 429px;
   height: 263px;
 }
-
-mat-grid-list{
-  margin-top: 20px;
-}
+ 
