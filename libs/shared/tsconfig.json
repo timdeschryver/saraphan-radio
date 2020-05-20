@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["node", "jest"]
   },
-  "include": ["**/*.ts", "../shared/src/lib/material.module.ts"]
+  "include": ["**/*.ts"]
 }

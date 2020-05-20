@@ -4,10 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './components/core/app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {
-  ProvidersFeatureSearchModule,
-} from '@saraphan/providers/feature-search';
-import { UiModule, MaterialModule , ShellComponent} from '@saraphan/ui';
+
+import { UiModule } from '@saraphan/ui';
 import { RootStoreModule } from './root-store.module';
 import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
@@ -17,6 +15,8 @@ import { InterceptorService } from './auth/services/interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ShellComponent } from './components';
+import { MaterialModule } from './material.module';
 // import localeRu from '@angular/common/locales/ru';
 // import { registerLocaleData } from '@angular/common';
 // registerLocaleData(localeRu, 'ru');
@@ -27,6 +27,13 @@ const appRoutes: Routes = [
     component: ShellComponent
   },
   {
+    path: 'search',
+    loadChildren: () =>
+      import('@saraphan/providers/feature-search').then(
+        m => m.ProvidersFeatureSearchModule
+      )
+  },
+  {
     path: 'callback',
     component: CallbackComponent
   },
@@ -35,25 +42,22 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('@saraphan/account/feature-registration').then(
         m => m.AccountFeatureRegistrationModule
-      ),
+      )
     //canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ShellComponent],
   imports: [
-  //  BrowserModule,
-
-  CommonModule,
-  BrowserAnimationsModule,
-  MaterialModule,
-  UiModule,
-  FormsModule,
-  ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    UiModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabled' }),
     HttpClientModule,
-    ProvidersFeatureSearchModule,
     RootStoreModule,
     AuthModule.forRoot(environment)
   ],

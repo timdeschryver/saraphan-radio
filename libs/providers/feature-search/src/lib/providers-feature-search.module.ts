@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProvidersDomainModule } from '@saraphan/providers/domain';
 import { ProvidersSearchComponent } from './search.component';
-import { MaterialModule} from '@saraphan/ui'; 
+import { ProvidersRoutingModule } from './providers-routing.module';
 
 @NgModule({
-  imports: [CommonModule, ProvidersDomainModule, MaterialModule,],
-  declarations: [ProvidersSearchComponent],
-  exports: [ProvidersSearchComponent]
+  imports: [
+    CommonModule,
+    ProvidersDomainModule, 
+    ProvidersRoutingModule
+  ],
+
 })
 export class ProvidersFeatureSearchModule {}

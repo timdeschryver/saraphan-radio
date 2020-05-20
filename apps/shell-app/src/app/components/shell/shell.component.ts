@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'saraphan-shell',
@@ -7,11 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ShellComponent {
   @Input() public user: any; 
-  @Output() public registerEvent = new EventEmitter();
+  constructor( private router: Router ) {}
 
-  constructor() {}
-
-  register() {
-    this.registerEvent.emit();
+  navigate(link) {
+    this.router.navigate(['/'+ link]);
   }
 }
