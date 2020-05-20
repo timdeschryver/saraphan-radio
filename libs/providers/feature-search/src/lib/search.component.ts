@@ -13,7 +13,6 @@ export class ProvidersSearchComponent   {
 
     providerList$ = this.app.allProviders$;
     constructor(private app: ProvidersFacade) {
-      console.log("dispatch")
       this.app.loadProviders();
 
     }

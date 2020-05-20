@@ -1,0 +1,14 @@
+<mat-sidenav-container >
+  <navigation-header (accountEvent)="register()" (logoutEvent)="logout()"  [user]="user$ | async" (loginEvent)="login()" (sidenavToggle)="sidenav.toggle()"></navigation-header>
+
+  <mat-sidenav #sidenav mode="side" >
+    <navigation-side (navigateClicked)="changeRoute($event)" [user]="user$ | async" (sidenavClose)="sidenav.close()"></navigation-side>
+  </mat-sidenav>
+
+ <main>
+    <router-outlet></router-outlet>
+  </main>
+</mat-sidenav-container>
+
+
+

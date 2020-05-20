@@ -30,16 +30,16 @@
       "tags": ["domain:providers", "type:domain-logic"]
     },
     "providers-feature-search": {
-      "tags": ["domain:providers", "type:feature", "ui"]
+      "tags": ["domain:providers", "type:feature"]
     },
     "ui": {
-      "tags": []
+      "tags": ["domain:account","shell-app","domain:providers","domain:shared"]
     },
     "account-domain": {
       "tags": ["domain:account", "type:domain-logic"]
     },
     "account-feature-registration": {
-      "tags": ["domain:account", "type:feature", "ui"]
+      "tags": ["domain:account", "type:feature"]
     }
   }
 }
