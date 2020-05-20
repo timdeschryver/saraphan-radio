@@ -25,9 +25,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc",
-    "postinstall:bak": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "build:providers:externals": "ng build --extra-webpack-config apps/providers/webpack.externals.js --prod --project providers --single-bundle"
+     "build:providers:externals": "ng build --extra-webpack-config apps/providers/webpack.externals.js --prod --project providers --single-bundle"
   },
   "private": true,
   "dependencies": {
