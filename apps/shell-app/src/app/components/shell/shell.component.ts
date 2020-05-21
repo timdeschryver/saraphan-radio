@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { RootState } from '../../+state/root.selectors';
-import { changeLink } from '../../+state/root.actions';
+import { Store, select } from '@ngrx/store';
+import { RootState, selectUser } from '../../+state/root.selectors';
+import { changeLink, LoginAction } from '../../+state/root.actions';
 
 @Component({
   selector: 'saraphan-shell',
@@ -10,10 +10,14 @@ import { changeLink } from '../../+state/root.actions';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
-  @Input() public user: any;
+
   constructor(private store: Store<RootState>) {}
+  user$ = this.store.pipe(select(selectUser));
 
   navigate(link) {
     this.store.dispatch(changeLink({ link }));
+  }
+  login(){
+    this.store.dispatch(LoginAction({ url: '' }));
   }
 }

@@ -1,13 +1,27 @@
 <div class="container h-100">
   <div class="row h-100  align-items-center justify-content-center">
-    <div class="d-flex align-items-center px-4 pb-3 ">
-      <mat-card (click)="navigate('account')" color="primary" matTooltip="click to see your account">
-        <mat-card-title>
-          See if I have clients
-        </mat-card-title>
-        <img class="large" src="/assets/unDraw/undraw_online_connection_6778.svg" alt="service provider">
+    <div class="d-flex align-items-center px-4 pb-3 " >
+      <ng-container *ngIf="(user$ | async)?.loggedIn; then user; else noUser">
 
-      </mat-card>
+      </ng-container>
+      <ng-template #user>
+        <mat-card (click)="navigate('account')" color="primary" matTooltip="click to see your account">
+          <mat-card-title>
+            Go to My account
+          </mat-card-title>
+          <img class="large" src="/assets/unDraw/undraw_online_connection_6778.svg" alt="service provider">
+        </mat-card>
+      </ng-template>
+      <ng-template #noUser>
+        <mat-card (click)="login()" color="primary" matTooltip="click to login">
+          <mat-card-title>
+            Login
+          </mat-card-title>
+          <img class="large" src="/assets/unDraw/login.svg" alt="service provider">
+
+        </mat-card>
+
+      </ng-template>
     </div>
 
     <div class="d-flex align-items-center px-4 pb-3 ">

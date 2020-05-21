@@ -8,6 +8,7 @@ import {
   moveItemInArray,
   transferArrayItem
 } from '@angular/cdk/drag-drop';
+import { Router } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,8 +27,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     }
   ]
 })
-
-
 
 export class RegistrationComponent implements OnInit {
   isPitching = false;
@@ -72,7 +71,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private registrationFacade: RegistrationFacade,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -133,5 +133,10 @@ export class RegistrationComponent implements OnInit {
         event.currentIndex
       );
     }
+  }
+
+  gohome(){
+    this.router.navigate(['/']);
+
   }
 }
