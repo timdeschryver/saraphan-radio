@@ -21,3 +21,8 @@ export const genericFailure = createAction(
   '[Root] Generic Failure',
   props<{ error: any }>()
 );
+
+export const changeLink = createAction(
+  '[Root] Change link',
+  props<{ link: string  }>()
+);

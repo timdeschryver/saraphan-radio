@@ -1,6 +1,16 @@
 <div class="container h-100" *ngIf="!isPitching">
   <div class="row h-100  align-items-center justify-content-center">
     <div class="d-flex align-items-center px-4 pb-3 ">
+      <mat-card color="primary" matTooltip="click to go home" >
+        <mat-card-title>
+         Take me Home
+        </mat-card-title>
+        <img  class="large" src="/assets/unDraw/home.svg"
+          alt="home">
+
+      </mat-card>
+    </div>
+    <div class="d-flex align-items-center px-4 pb-3 ">
       <mat-card color="primary" matTooltip="click to setup provider account" (click)="isPitching=true">
         <mat-card-title>
           I will provide services

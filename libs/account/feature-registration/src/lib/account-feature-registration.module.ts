@@ -1,23 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccountDomainModule } from '@saraphan/account/domain';
-import {UiModule } from '@saraphan/ui';
+import {UiModule,MaterialModule } from '@saraphan/ui';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AccountRoutingModule } from './account-routing.module';
 
+import { Routes, RouterModule } from '@angular/router';
+import { RegistrationComponent } from './components/core/registration.component';
+
 @NgModule({
   imports: [
-    CommonModule,
-    UiModule, 
+    CommonModule ,
+    UiModule,
     AccountDomainModule,
     FormsModule,
     ReactiveFormsModule,
     NgxMaterialTimepickerModule,
     DragDropModule,
     AccountRoutingModule
-  ]
+  ],
+  declarations: [RegistrationComponent],
+  exports: [RegistrationComponent]
 })
 export class AccountFeatureRegistrationModule {}

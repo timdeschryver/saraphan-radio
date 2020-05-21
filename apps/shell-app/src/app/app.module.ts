@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ShellComponent } from './components';
 import { MaterialModule } from './material.module';
-// import localeRu from '@angular/common/locales/ru';
+ // import localeRu from '@angular/common/locales/ru';
 // import { registerLocaleData } from '@angular/common';
 // registerLocaleData(localeRu, 'ru');
 
@@ -37,21 +37,19 @@ const appRoutes: Routes = [
     path: 'callback',
     component: CallbackComponent
   },
-  {
-    path: 'account',
+   {
+    path:'account',
     loadChildren: () =>
-      import('@saraphan/account/feature-registration').then(
-        m => m.AccountFeatureRegistrationModule
-      )
-    //canActivate: [AuthGuard]
+    import('@saraphan/account/feature-registration').then(m => m.AccountFeatureRegistrationModule)
+   // canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
   declarations: [AppComponent, ShellComponent],
   imports: [
-    CommonModule,
-    BrowserAnimationsModule,
+   CommonModule,
+   BrowserAnimationsModule,
     MaterialModule,
     UiModule,
     FormsModule,
