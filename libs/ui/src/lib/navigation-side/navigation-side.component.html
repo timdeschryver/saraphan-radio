@@ -8,5 +8,7 @@
   <a *ngIf="user?.loggedIn" mat-list-item  (click)="onSidenavClose(); navigate('account')">
     <mat-icon>perm_identity</mat-icon> <span class="nav-caption">My Account</span>
   </a>
-
+  <a  mat-list-item (click)="onSidenavClose(); navigate('beta')">
+    <mat-icon>Business</mat-icon> <span class="nav-caption">Beta testers</span>
+  </a>
 </mat-nav-list>

@@ -5,7 +5,7 @@ import { AppComponent } from './components/core/app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { UiModule } from '@saraphan/ui';
+import { UiModule ,BetaComponent } from '@saraphan/ui';
 import { RootStoreModule } from './root-store.module';
 import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
@@ -25,6 +25,10 @@ const appRoutes: Routes = [
   {
     path: '',
     component: ShellComponent
+  },
+  {
+    path: 'beta',
+    component: BetaComponent
   },
   {
     path: 'search',
