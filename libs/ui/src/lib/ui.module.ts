@@ -5,13 +5,15 @@ import { NavigationSideComponent } from './navigation-side/navigation-side.compo
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { MaterialModule } from './material.module';
+import { BetaComponent } from './beta/beta.component';
 
 @NgModule({
   imports: [CommonModule, NgxMaterialTimepickerModule, MaterialModule],
   declarations: [
     NavigationComponent,
     NavigationSideComponent,
-    DateTimePickerComponent
+    DateTimePickerComponent,
+    BetaComponent
   ],
   exports: [
     NavigationComponent,
