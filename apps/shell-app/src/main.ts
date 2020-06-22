@@ -5,6 +5,11 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
+  const params = new URLSearchParams(location.search);
+  if (params.get('debug') !== 'true') {
+    window['__REDUX_DEVTOOLS_EXTENSION__'] = null;
+  }
+
   enableProdMode();
 }
 
